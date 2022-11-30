@@ -17,7 +17,6 @@ function App() {
 
 //Temp state
 const [newTask, setNewTask] = useState('');
-const [updateData,setUpdateData] = useState('')
 
 //Add task
 const addTask = () =>{
@@ -49,26 +48,11 @@ const markDone = (id) =>{
 
 }
 
-//Cancel Update
-const cancelUpdate = () =>{
-
-}
-
-//Change task for Update
-const changeTask = (e) =>{
-
-}
-
-//Update task
-const updateTask = () =>{
-
-}
-
 
   return (
     <div className="container App">
      <br/> <br/>
-     <h2>To Do List App</h2>
+     <h1 style={{color:"#00ff89"}}>ToDo List</h1>
      <br/> 
 
       {/* Add Task */}
@@ -89,7 +73,7 @@ const updateTask = () =>{
       </div>
       <br/>
 
-     {toDo && toDo.length ? '' : 'No Tasks...'}
+     {toDo && toDo.length ? '' : <h3>No Tasks...</h3>}
 
      {toDo && toDo
      .sort((a,b) => a.id > b.id ? 1: -1)
@@ -102,13 +86,12 @@ const updateTask = () =>{
             <span className='taskText'>{task.title}</span>
           </div>
           <div className='iconsWrap'>
+
             <span title="Completed / Not Completed"
             onClick={(e) => markDone(task.id)}>
             <FontAwesomeIcon icon={faCircleCheck} />
             </span>
-            <span title="Edit">
-            <FontAwesomeIcon icon={faPen} />
-            </span>
+
             <span title="Delete" onClick={() => deleteTask(task.id)}>
             <FontAwesomeIcon icon={faTrashCan}
              />
